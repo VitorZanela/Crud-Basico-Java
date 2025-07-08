@@ -15,7 +15,6 @@ public class Layout {
     }
 
     public void menu(String[] lista){
-        cabecalho("MENU PRINCIPAL");
         for (int i = 0; i < lista.length; i++) {
             System.out.println(i+1 +" - "+lista[i]);
         }
@@ -37,6 +36,19 @@ public class Layout {
         }
     }
 
+    public String continuar(String txt){
+        Scanner entrada = new Scanner(System.in);
+        String resp;
+        while (true){
+            System.out.println(txt);
+            try {
+                resp = entrada.nextLine();
+                return resp;
+            } catch (RuntimeException e){
+                System.out.println("ERRO! Resposta Invalida. Digite novamente!");
+            }
+        }
+    }
 
 
 
