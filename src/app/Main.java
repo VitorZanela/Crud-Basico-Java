@@ -13,43 +13,42 @@ public class Main {
         Layout layout = new Layout();
 
         while (true) {
+            layout.cabecalho("MENU PRINCIPAL");
             layout.menu(new String[]{"Cadastrar Contato","Ver Contatos", "Sair"});
             int opc = layout.leiaInt("Escolha uma opção: ");
             if (opc == 1) {
-
-                while(true){
-                    layout.cabecalho("NOVO CONTATO");
-
-                    Contato contato = new Contato();
-
-                    System.out.print("Nome: ");
-                    contato.setNome(entrada.nextLine());
-                    System.out.print("Telefone: ");
-                    contato.setTelefone(entrada.nextLine());
-                    System.out.print("Email: ");
-                    contato.setEmail(entrada.nextLine());
-
-                    funcCont.adicionarContato(contato);
-                    System.out.println("--> Adicionado com Sucesso! <--");
-
-                    System.out.println("Continua? [S/N]");
-                    String resp = entrada.nextLine();
-                    if (resp.equalsIgnoreCase("S")) {
-
-                    } else if (resp.equalsIgnoreCase("N")) {
-                        break;
-                    }else {
-                        System.out.println("Opção invalida! Tente novamente");
-                    }
-                }
-
+                funcCont.novoContatoComLoop();
             } else if (opc == 2) {
                 layout.linha();
-                funcCont.listarContatos();
+                if (funcCont.getListaContatos().isEmpty()){
+                    System.out.println("Sem contatos cadastrados!");
+                    layout.cabecalho("INCLUSÃO CONTATOS");
+                    layout.menu(new String[]{"Cadastrar Contato", "Sair"});
+                    int opcEmpty = layout.leiaInt("Escolha uma opção: ");
+                    if (opcEmpty == 1) {
+                        funcCont.novoContatoComLoop();
+                    } else if (opcEmpty == 2){
+                        break;
+                    } else {
+                        System.out.println("ERRO! Opção Invalida. Digite novamente!");
+                    }
+                } else {
+                    funcCont.listarContatos();
+                    layout.cabecalho("EDITAR CONTATOS");
+                    layout.menu(new String[]{"Cadastrar Contato", "Ver Contatos", "Atualizar Contato","Remover Contato", "Sair"});
+                }
+                int resp = layout.leiaInt("Escolha uma opção: ");
+                if (resp == 1){
+                    funcCont.novoContatoComLoop();
+                } else if (resp == 2) {
+                    System.out.println("OPÇÃO 2");
+                }
+
+
             } else if (opc == 3) {
                 break;
             } else {
-                System.out.println("Opção Incorreta. Tente novamente!!");
+                System.out.println("ERRO! Opção Invalida. Digite novamente!");
             }
         }
 
