@@ -26,20 +26,9 @@ public class AgendaContatos extends Layout {
 
     }
 
-    public void novoContatoComLoop(){
-        while (true){
-            novoContato();
-            String resp = continuar("Continua? [S/N]");
-            if (resp.equalsIgnoreCase("N")) {
-                break;
-            } else if (!resp.equalsIgnoreCase("S")) {
-                System.out.println("ERRO! Resposta Invalida. Digite novamente!");
-            }
-        }
-    }
-
 
     public void adicionarContato(Contato novoContato) {
+
         listaContatos.add(novoContato);
     }
 
@@ -52,7 +41,23 @@ public class AgendaContatos extends Layout {
         }
     }
 
+    public void consultaContato(){
+        int i = 1;
+        System.out.println("ID - NOME");
+        linha();
+        for (Contato contato : listaContatos) {
+            System.out.println(i + " - " + contato.getNome()+" - "+contato.getEmail()+" - "+contato.getTelefone());
+            i++;
+        }
+    }
+
+    public void exclusaoContato(int contato){
+            int index = contato - 1;
+            listaContatos.remove(index);
+    }
+
     public List<Contato> getListaContatos() {
+
         return listaContatos;
     }
 }
