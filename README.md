@@ -12,7 +12,7 @@ Criar um sistema funcional que realize as operações básicas de CRUD:
 - **Create (Criar):** adicionar novos contatos
 - **Read (Ler):** visualizar os contatos cadastrados
 - **Update (Atualizar):** *(em desenvolvimento)*
-- **Delete (Excluir):** *(em desenvolvimento)*
+- **Delete (Excluir):** deletar o contato selecionado
 
 ---
 
