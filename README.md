@@ -11,7 +11,7 @@ Criar um sistema funcional que realize as operações básicas de CRUD:
 
 - **Create (Criar):** adicionar novos contatos
 - **Read (Ler):** visualizar os contatos cadastrados
-- **Update (Atualizar):** *(em desenvolvimento)*
+- **Update (Atualizar):** Atualizar os contatos cadastrados
 - **Delete (Excluir):** deletar o contato selecionado
 
 ---
@@ -165,7 +165,6 @@ cd crud-basico
 ---
 
 ## 🚀 Funcionalidades futuras (etapa 6)
-- Atualizar e remover contatos por nome ou índice
 
 - Validação de entrada (ex: não aceitar telefone vazio)
 
