@@ -23,7 +23,6 @@ public class AgendaContatos extends Layout {
 
         adicionarContato(contato);
         System.out.println("--> Adicionado com Sucesso! <--");
-
     }
 
 
@@ -34,10 +33,16 @@ public class AgendaContatos extends Layout {
 
     public void listarContatos() {
         for (Contato contato : listaContatos) {
-            System.out.println(contato.getNome());
-            System.out.println(contato.getTelefone());
-            System.out.println(contato.getEmail());
-            System.out.println("----------------");
+            if (listaContatos.size() == 1) {
+                System.out.println("Nome: " +contato.getNome());
+                System.out.println("Telefone: " +contato.getTelefone());
+                System.out.println("E-mail: " +contato.getEmail());
+            } else {
+                System.out.println("Nome: " +contato.getNome());
+                System.out.println("Telefone: " +contato.getTelefone());
+                System.out.println("E-mail: " +contato.getEmail());
+                System.out.println("----------------");
+            }
         }
     }
 
@@ -46,18 +51,42 @@ public class AgendaContatos extends Layout {
         System.out.println("ID - NOME");
         linha();
         for (Contato contato : listaContatos) {
-            System.out.println(i + " - " + contato.getNome()+" - "+contato.getEmail()+" - "+contato.getTelefone());
+            System.out.println(i + " - " + contato.getNome());
             i++;
         }
     }
 
+    public void listarInfoContatos(int indexInfo){
+        Scanner entrada = new Scanner(System.in);
+        cabecalho("ESCOLHA O DADO");
+        System.out.println("1 - "+listaContatos.get(indexInfo).getNome());
+        System.out.println("2 - "+listaContatos.get(indexInfo).getTelefone());
+        System.out.println("3 - "+listaContatos.get(indexInfo).getEmail());
+        while (true) {
+            int edicao = leiaInt("Escolha uma opção: ");
+            if (edicao == 1) {
+                System.out.println("Digite o novo nome: ");
+                listaContatos.get(indexInfo).setNome(entrada.nextLine());
+                break;
+            } else if (edicao == 2) {
+                System.out.println("Digite o novo telefone: ");
+                listaContatos.get(indexInfo).setTelefone(entrada.nextLine());
+                break;
+            } else if (edicao == 3) {
+                System.out.println("Digite o novo email: ");
+                listaContatos.get(indexInfo).setEmail(entrada.nextLine());
+                break;
+            } else {
+                System.out.println("ERRO! Opção Invalida. Digite novamente!");
+            }
+        }
+    }
+
     public void exclusaoContato(int contato){
-            int index = contato - 1;
-            listaContatos.remove(index);
+        listaContatos.remove(contato - 1);
     }
 
     public List<Contato> getListaContatos() {
-
         return listaContatos;
     }
 }
