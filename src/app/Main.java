@@ -3,14 +3,11 @@ package app;
 import model.Layout;
 import services.AgendaContatos;
 
-import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
         AgendaContatos funcCont = new AgendaContatos();
         Layout layout = new Layout();
-
 
         while (true) {
             layout.cabecalho("MENU PRINCIPAL");
@@ -42,8 +39,19 @@ public class Main {
                     } else if (resp == 2) {
                         funcCont.listarContatos();
                     } else if (resp == 3){
+                        layout.cabecalho("ESCOLHER CONTATO");
                         funcCont.consultaContato();
-
+                        while (true) {
+                            int escolha = layout.leiaInt("Escolha um contato: ");
+                            if (escolha > funcCont.getListaContatos().size()) {
+                                System.out.println("Contato incorreto! Tente novamente!");
+                            }else if (escolha < 1){
+                                System.out.println("ERRO! Opção Invalida. Digite novamente!");
+                            } else {
+                                funcCont.listarInfoContatos(escolha-1);
+                                break;
+                            }
+                        }
                     } else if (resp == 4){
                         layout.cabecalho("ESCOLHER CONTATO");
                         funcCont.consultaContato();
@@ -58,25 +66,17 @@ public class Main {
                                 break;
                             }
                         }
-
                     } else if (resp == 5){
                         break;
                     } else {
                         System.out.println("ERRO! Opção Invalida. Digite novamente!");
                     }
-
                 }
-
-
             } else if (opc == 3) {
                 break;
             } else {
                 System.out.println("ERRO! Opção Invalida. Digite novamente!");
             }
         }
-
-
-
-
     }
 }
