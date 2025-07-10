@@ -19,7 +19,6 @@ public class Layout {
             System.out.println(i+1 +" - "+lista[i]);
         }
         linha();
-
     }
 
     public int leiaInt(String txt){
@@ -35,21 +34,4 @@ public class Layout {
             }
         }
     }
-
-    public String continuar(String txt){
-        Scanner entrada = new Scanner(System.in);
-        String resp;
-        while (true){
-            System.out.println(txt);
-            try {
-                resp = entrada.nextLine();
-                return resp;
-            } catch (RuntimeException e){
-                System.out.println("ERRO! Resposta Invalida. Digite novamente!");
-            }
-        }
-    }
-
-
-
 }
