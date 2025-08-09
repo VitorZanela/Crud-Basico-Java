@@ -61,9 +61,9 @@ usuário e adiciona à lista.
 
 Método listarContatos() exibe todos os contatos cadastrados com seus respectivos dados.
 
-#### 🚧 Atualizar e Remover
+#### ✅ Atualizar e Remover
 
-Ainda não implementado, mas a estrutura do menu já prevê essas opções.
+Finalizado atualização dos contatos.
 
 
 ---
@@ -164,7 +164,7 @@ cd crud-basico
 
 ---
 
-## 🚀 Funcionalidades futuras (etapa 6)
+## 🚀 Funcionalidades que podem ser implementadas (etapa 6)
 
 - Validação de entrada (ex: não aceitar telefone vazio)
 
